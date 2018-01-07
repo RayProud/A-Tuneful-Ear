@@ -1,0 +1,46 @@
+{
+  "name": "A-Tuneful-Ear",
+  "version": "0.1.0",
+  "description": "An app for training your ears",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RayProud/A-Tuneful-Ear.git"
+  },
+  "author": "Ray Proud <stillerr@ya.ru>",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "lodash": "^4.17.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
+    "superagent": "^3.8.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/preset-env": "^7.0.0-beta.36",
+    "@babel/preset-react": "^7.0.0-beta.36",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.0-beta.0",
+    "file-loader": "^1.1.6",
+    "html-loader": "^0.5.4",
+    "html-webpack-plugin": "^2.30.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.10.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  }
+}
