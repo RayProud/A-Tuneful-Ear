@@ -16,7 +16,7 @@ module.exports = {
             //     use: 'file-loader',
             // },
             {
-                test: /\.js(x?)$/,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: 'babel-loader'
             }
@@ -31,5 +31,5 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     watch: true,
-    devtool: 'eval-source-map'
+    devtool: 'cheap-module-source-map'
 };
