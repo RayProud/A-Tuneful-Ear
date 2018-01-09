@@ -1,8 +1,8 @@
 import "babel-polyfill";
 
-import App from './test';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './test';
 import store from './createStore';
 import {startListeningGame} from './actions';
 
@@ -12,7 +12,7 @@ function onListenBtnClick() {
 
 function render() {
     ReactDOM.render(
-        <App onClick={onListenBtnClick} />,
+        <App store={store} onClick={onListenBtnClick} />,
         document.getElementById('app')
     );
 }

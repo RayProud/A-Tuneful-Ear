@@ -53,9 +53,40 @@ const notesList = {
     }
 };
 
-const getRandomNote = () => {
-    console.log('sdf');
+export function getRandomNote() {
     return notesList[parseInt((Math.random()*13))];
 };
 
-export default getRandomNote;
+export function initAudioCtx() {
+    if (typeof window == 'undefined') {
+        return false;
+    }
+
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    window.ctx = new AudioContext();
+    window.oscillator = window.ctx.createOscillator();
+    window.gainNode = window.ctx.createGain();
+    window.oscillator.connect(window.gainNode);
+    window.gainNode.connect(window.ctx.destination);
+    window.gain = window.gainNode.gain;
+    window.oscillator.start(0);
+    window.gain.value = 0;
+
+    return true;
+}
+
+export function changeSoundingNote(storeFreq) {
+    if (typeof window == 'undefined') {
+        return false;
+    }
+
+    window.gain.value = 0;
+    window.oscillator.frequency.value = storeFreq;
+    window.gain.value = 1;
+
+    return true;
+};
+
+export function muteOscillator() {
+    window.gain.value = 0;
+};
