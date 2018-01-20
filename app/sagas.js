@@ -14,13 +14,24 @@ import {
     muteOscillator
 } from './utils/noteHelper';
 export const getAudioIsInited = state => state.game.audioIsInited;
+export const gameNoteFreq = state => state.game.gameNote.freq;
 
-
+export function* playNote() {
+    const freq = yield select(gameNoteFreq);
+    yield call(muteOscillator);
+    yield call(delay, 400);
+    yield call(changeSoundingNote, freq);
+    yield call(delay, 1000);
+    yield call(muteOscillator);
+}
 
 export default function* rootSaga() {
+    let note;
     yield takeEvery('*', function* logger(action) {
         console.log('action', action);
     });
+
+    yield takeEvery('LISTEN_TO_THE_NOTE', playNote);
     let isAudioInited = false;
 
     while (true) {
@@ -31,11 +42,9 @@ export default function* rootSaga() {
             if (isAudioInited) yield put(initAudionCtx());
         }
         if (isAudioInited) {
-            const note = yield call(getRandomNote);
+            note = yield call(getRandomNote);
             yield put(generateGameNote(note));
-            yield call(changeSoundingNote, note.freq);
-            yield call(delay, 1000);
-            yield call(muteOscillator);
+            yield call(playNote, note);
             yield take(FINISH_THE_GAME);
             yield put(submitANote(null));
         } else {

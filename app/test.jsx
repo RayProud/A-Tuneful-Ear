@@ -24,6 +24,7 @@ class App extends React.Component {
             userNote,
             gameNote,
             startListeningGame,
+            listenToTheNote,
             submitANote,
             finishTheGame
         } = this.props;
@@ -32,13 +33,16 @@ class App extends React.Component {
             <div>
                 {!gameIsActive && <button onClick={startListeningGame}>Послушать</button>}
                 {gameIsActive && !userNote &&
-                    <form action="" onSubmit={(e) => {e.preventDefault();submitANote(this.textInput && this.textInput.value)}}>
-                        <input
-                            ref={(input) => {this.textInput = input;}}
-                            type="text"
-                        />
-                        <input type="submit"/>
-                    </form>
+                    <div>
+                        <button onClick={listenToTheNote}>Еще разок</button>
+                        <form action="" onSubmit={(e) => {e.preventDefault();submitANote(this.textInput && this.textInput.value)}}>
+                            <input
+                                ref={(input) => {this.textInput = input;}}
+                                type="text"
+                            />
+                            <input type="submit"/>
+                        </form>
+                    </div>
                 }
                 {userNote &&
                     <div>
