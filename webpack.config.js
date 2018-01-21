@@ -24,12 +24,15 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'dist/index.html')
+            template: path.join(__dirname, 'app/index.html')
+        }),
+        new webpack.DefinePlugin({
+            NODE_ENV: JSON.stringify(NODE_ENV)
         })
     ],
     resolve: {
         extensions: ['.js', '.jsx']
     },
-    watch: true,
-    devtool: 'cheap-module-source-map'
+    watch: NODE_ENV == 'development',
+    devtool: NODE_ENV == 'development' ? 'cheap-module-source-map' : false
 };
