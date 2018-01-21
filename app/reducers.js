@@ -1,10 +1,10 @@
-import * as consts from './actions';
 import { combineReducers } from 'redux';
+import * as consts from './actions';
 
 const gameInitialState = {
     gameIsActive: false,
-    userNote: null,
-    gameNote: null,
+    userNote: false,
+    gameNote: false,
     audioIsInited: false
 };
 

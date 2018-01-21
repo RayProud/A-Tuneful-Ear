@@ -1,5 +1,5 @@
 import { delay } from 'redux-saga';
-import { put, take, select, call, takeEvery, all } from 'redux-saga/effects';
+import { put, take, select, call, takeEvery } from 'redux-saga/effects';
 import {
     START_LISTENING_GAME,
     FINISH_THE_GAME,
@@ -13,8 +13,8 @@ import {
     changeSoundingNote,
     muteOscillator
 } from './utils/noteHelper';
-export const getAudioIsInited = state => state.game.audioIsInited;
-export const gameNoteFreq = state => state.game.gameNote.freq;
+export const getAudioIsInited = (state) => state.game.audioIsInited;
+export const gameNoteFreq = (state) => state.game.gameNote.freq;
 
 export function* playNote() {
     const freq = yield select(gameNoteFreq);

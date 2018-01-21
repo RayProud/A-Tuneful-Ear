@@ -42,5 +42,5 @@ export function generateGameNote(note) {
 export function initAudionCtx() {
     return {
         type: INIT_AUDIO_CTX
-    }
+    };
 }

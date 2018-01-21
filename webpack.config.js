@@ -11,10 +11,6 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /\.html$/,
-            //     use: 'file-loader',
-            // },
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
@@ -31,6 +27,7 @@ module.exports = {
         })
     ],
     resolve: {
+        modules: ['node_modules', 'app'],
         extensions: ['.js', '.jsx']
     },
     watch: NODE_ENV == 'development',

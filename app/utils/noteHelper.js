@@ -54,11 +54,11 @@ const notesList = {
 };
 
 export function getRandomNote() {
-    return notesList[parseInt((Math.random()*13))];
-};
+    return notesList[parseInt((Math.random() * 13))];
+}
 
 export function initAudioCtx() {
-    if (typeof window == 'undefined') {
+    if (typeof window === 'undefined') {
         return false;
     }
 
@@ -76,7 +76,7 @@ export function initAudioCtx() {
 }
 
 export function changeSoundingNote(storeFreq) {
-    if (typeof window == 'undefined') {
+    if (typeof window === 'undefined') {
         return false;
     }
 
@@ -85,8 +85,8 @@ export function changeSoundingNote(storeFreq) {
     window.gain.value = 1;
 
     return true;
-};
+}
 
 export function muteOscillator() {
     window.gain.value = 0;
-};
+}
