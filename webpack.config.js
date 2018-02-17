@@ -27,9 +27,15 @@ module.exports = {
         })
     ],
     resolve: {
-        modules: ['node_modules', 'app'],
-        extensions: ['.js', '.jsx']
+        modules: [
+            'node_modules',
+            'app'
+        ],
+        extensions: [
+            '.js',
+            '.jsx'
+        ]
     },
-    watch: NODE_ENV == 'development',
-    devtool: NODE_ENV == 'development' ? 'cheap-module-source-map' : false
+    watch: NODE_ENV === 'development',
+    devtool: NODE_ENV === 'development' ? 'cheap-module-source-map' : false
 };

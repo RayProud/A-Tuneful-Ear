@@ -37,7 +37,7 @@ class App extends React.Component {
                         <button onClick={listenToTheNote}>Еще разок</button>
                         <form action="" onSubmit={this.onFormSubmit}>
                             <input
-                                ref={(input) => { this.textInput = input; }}
+                                ref={input => { this.textInput = input; }}
                                 type="text"
                                 />
                             <input type="submit" />

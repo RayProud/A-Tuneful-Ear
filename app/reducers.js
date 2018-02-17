@@ -35,7 +35,7 @@ function gameReducer(state = gameInitialState, action) {
     }
 }
 
-export default function createReducer(injectedReducers) {
+export default function createReducer() {
     return combineReducers({
         game: gameReducer
     });

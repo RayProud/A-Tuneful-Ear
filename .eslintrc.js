@@ -39,12 +39,12 @@ module.exports = {
             }
         ],
         "babel/semi": "error",
-        "babel/no-invalid/this": "error",
         "block-scoped-var": "error",
         "block-spacing": "error",
         "brace-style": [
             "error",
-            "1tbs"
+            "1tbs",
+            {"allowSingleLine": true}
         ],
         "callback-return": "error",
         "camelcase": "error",
@@ -270,9 +270,10 @@ module.exports = {
             "error",
             "multiline"
         ],
-        "react/jsx-filename-extension": "off",
+        "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
         "react/jsx-no-target-blank": "off",
         "react/jsx-curly-spacing": "off",
+        "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "react/prefer-stateless-function": "off",
         "react/require-extension": "off",
