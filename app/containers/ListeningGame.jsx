@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { get } from 'lodash';
 import * as actionCreator from '../actions';
 import Results from '../components/Results';
-import { get } from 'lodash';
 
 class App extends React.Component {
-    onFormSubmit = (e) => {
+    onFormSubmit = e => {
         e.preventDefault();
         const { submitANote } = this.props;
         submitANote(this.textInput && this.textInput.value);
