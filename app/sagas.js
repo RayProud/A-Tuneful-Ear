@@ -26,11 +26,6 @@ export function* playNote() {
 }
 
 export default function* rootSaga() {
-    let note;
-    yield takeEvery('*', function* logger(action) {
-        console.log('action', action); // eslint-disable-line no-console
-    });
-
     yield takeEvery('LISTEN_TO_THE_NOTE', playNote);
     let isAudioInited = false;
 
@@ -42,7 +37,7 @@ export default function* rootSaga() {
             if (isAudioInited) yield put(initAudionCtx());
         }
         if (isAudioInited) {
-            note = yield call(getRandomNote);
+            const note = yield call(getRandomNote);
             yield put(generateGameNote(note));
             yield call(playNote, note);
             yield take(FINISH_THE_GAME);

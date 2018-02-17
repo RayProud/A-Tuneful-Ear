@@ -70,7 +70,7 @@ App.propTypes = {
         PropTypes.bool
     ]),
     gameNote: PropTypes.oneOfType([
-        PropTypes.obj,
+        PropTypes.object,
         PropTypes.bool
     ]),
     startListeningGame: PropTypes.func,
