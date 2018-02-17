@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 function Results({ isRightAnswer, note, finishTheGame }) {
     return (
         <div>
-            {isRightAnswer ? <div>Молодец!</div> : <div>Неправильно! Была нота {note}. </div>}
-            <button onClick={finishTheGame}>Сыграть еще раз!</button>
+            {isRightAnswer ? <div>Winner!</div> : <div>You lose! It was {note}. </div>}
+            <button onClick={finishTheGame}>Play one more time!</button>
         </div>
     );
 }

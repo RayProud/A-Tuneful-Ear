@@ -31,10 +31,10 @@ class App extends React.Component {
 
         return (
             <div>
-                {!gameIsActive && <button onClick={startListeningGame}>Послушать</button>}
+                {!gameIsActive && <button onClick={startListeningGame}>Listen to a note</button>}
                 {gameIsActive && !userNote &&
                     <div>
-                        <button onClick={listenToTheNote}>Еще разок</button>
+                        <button onClick={listenToTheNote}>One more time</button>
                         <form action="" onSubmit={this.onFormSubmit}>
                             <input
                                 ref={input => { this.textInput = input; }}
