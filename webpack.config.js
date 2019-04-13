@@ -1,12 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const NODE_ENV = process.env.NODE_ENV || 'development';
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-    entry: './app/main.js',
+const serverConfig = {
+    target: 'node',
+    entry: {
+        server: './src/index.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: 'index.js',
         path: path.resolve(__dirname, 'dist')
     },
     module: {
@@ -19,9 +21,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'app/index.html')
-        }),
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV)
         })
@@ -29,13 +28,62 @@ module.exports = {
     resolve: {
         modules: [
             'node_modules',
-            'app'
+            'src'
         ],
         extensions: [
             '.js',
             '.jsx'
         ]
     },
+    node: {
+        fs: 'empty',
+
+    },
     watch: NODE_ENV === 'development',
     devtool: NODE_ENV === 'development' ? 'cheap-module-source-map' : false
 };
+
+const clientServer = {
+    entry: {
+        client: './src/client.js'
+    },
+    output: {
+        filename: '[name].js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: 'babel-loader'
+            }
+        ]
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            NODE_ENV: JSON.stringify(NODE_ENV)
+        })
+    ],
+    resolve: {
+        modules: [
+            'node_modules',
+            'src'
+        ],
+        extensions: [
+            '.js',
+            '.jsx'
+        ]
+    },
+    node: {
+        fs: 'empty',
+
+    },
+    watch: NODE_ENV === 'development',
+    devtool: NODE_ENV === 'development' ? 'cheap-module-source-map' : false
+};
+
+module.exports = [
+    serverConfig,
+    clientServer
+];

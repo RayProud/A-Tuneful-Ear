@@ -78,7 +78,7 @@ module.exports = {
         "for-direction": "error",
         "func-call-spacing": "error",
         "func-name-matching": "error",
-        "func-names": "error",
+        "func-names": "off",
         "func-style": [
             "error",
             "declaration",
